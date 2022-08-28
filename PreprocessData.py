@@ -14,7 +14,8 @@ if __name__=='__main__':
         csvreader = csv.reader(file)
         header = next(csvreader)
         for row in csvreader:
-            row[0] = row[0].replace("\n", "\t")
+            row[0] = row[0].replace("\n", " ")
+            row[0] = row[0].replace("\t", " ")
             job_posts.append(row)        
  
     courses_hash=[]
@@ -22,11 +23,11 @@ if __name__=='__main__':
         for course in courses:
             course_item = course[1].split(" ")
             if ([ele for ele in course_item if(ele in post[0])]) :
-                
                 courses_hash.append([post[0], course[1], course[4] ])  
  
     with open('recommended_courses.data','w+', encoding="utf-8") as f:
         for course in courses_hash:
-            f.write(course[0]+'|'+course[1]+'|'+course[2]+'\n')
+            f.write(course[0]+'\t'+course[1]+'\t'+course[2]+'\n')
 
-    print("PreProcessing Done ---------------------------------------------------------->")   
+    print("PreProcessing Done ---------------------------------------------------------->")       
+     
