@@ -30,7 +30,6 @@ class CourseRecommendation(MRJob):
         for course_title, course_rating in values:
             course_count += 1
             ratings.append((course_title, course_rating))
- 
         yield job_post, (course_count, ratings) 
  
     def steps(self):
