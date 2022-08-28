@@ -16,7 +16,7 @@ class CourseRecommendation(MRJob):
         abc cde,2.7
         xyz uvx,3.7
         """
-        job_post ,course_title, course_rating = line.split('|')
+        job_post ,course_title, course_rating = line.split('\t')
         yield job_post, (course_title, float(course_rating))
  
     def count_ratings_freq(self, job_post, values):
