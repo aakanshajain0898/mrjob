@@ -16,6 +16,7 @@ if __name__=='__main__':
         for row in csvreader:
             row[0] = row[0].replace("\n", " ")
             row[0] = row[0].replace("\t", " ")
+            row[0] = row[0].replace("\r", " ")
             job_posts.append(row)        
  
     courses_hash=[]
@@ -23,7 +24,7 @@ if __name__=='__main__':
         for course in courses:
             course_item = course[1].split(" ")
             if ([ele for ele in course_item if(ele in post[0])]) :
-                courses_hash.append([post[0], course[1], course[4] ]) 
+                courses_hash.append([post[0], course[1], course[4] ])  
  
     with open('recommended_courses.data','w+') as f:
         for course in courses_hash:
