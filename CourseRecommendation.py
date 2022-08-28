@@ -2,8 +2,6 @@
 # coding=utf-8
 from mrjob.job import MRJob
 from mrjob.step import MRStep
-# from itertools import combinations
-# from math import sqrt
  
 class CourseRecommendation(MRJob):
     """ 
